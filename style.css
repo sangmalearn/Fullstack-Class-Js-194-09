@@ -1,0 +1,20 @@
+
+
+section {
+    max-width: 950px;
+    margin: auto;
+}
+section h2 {
+	text-align: center;
+}
+/* loop table start */
+
+
+.loop-table {
+  margin: auto;
+}
+td:nth-child(1) {
+  width: 50px;
+  vertical-align: top;  
+  text-align: center;
+}

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading system</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section>
+        <div class="section-header">
+            <h1>Grading Calculation System</h1>
+        </div>
+   
+
+    <form action="">
+
+        <table>
+            <tr>
+                <td>Sl. No.</td>
+                <td>Subject</td>        
+                <td>Marks</td>
+                <td>Grade</td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td><input type="text" name="exam_subject1" id="exam_subject1" placeholder="Enter your subject"></td>        
+                <td><input type="text" name="subject1_marks" id="subject1_marks" placeholder="Your marks" onchange="subject1grading()"></td>
+                <td><input type="text" name="subject1_grade" id="subject1_grade" ></td>              
+            </tr>
+            <tr>
+                <td>02</td>
+                <td><input type="text" name="exam_subject2" id="exam_subject2" placeholder="Enter your subject"></td>
+                <td><input type="text" name="subject2_marks" id="subject2_marks" placeholder="Your marks" onchange="subject2grading()"></td>
+                <td><input type="text" name="subject2_grade" id="subject2_grade" ></td>              
+            </tr> 
+            <tr>
+                <td>03</td>
+                <td><input type="text" name="exam_subject3" id="exam_subject3" placeholder="Enter your subject"></td>
+                <td><input type="text" name="subject3_marks" id="subject3_marks" placeholder="Your marks" onchange="subject3grading()"></td>
+                <td><input type="text" name="subject3_grade" id="subject3_grade" ></td>              
+            </tr>
+            <tr>
+                <td>04</td>
+                <td><input type="text" name="exam_subject4" id="exam_subject4" placeholder="Enter your subject"></td>
+                <td><input type="text" name="subject4_marks" id="subject4_marks" placeholder="Your marks" onchange="subject4grading()"></td>
+                <td><input type="text" name="subject4_grade" id="subject4_grade" ></td>              
+            </tr> 
+            <tr>
+                <td>05</td>
+                <td><input type="text" name="exam_subject5" id="exam_subject5" placeholder="Enter your subject"></td>
+                <td><input type="text" name="subject5_marks" id="subject5_marks" placeholder="Your marks" onchange="subject5grading()"></td>
+                <td><input type="text" name="subject5_grade" id="subject5_grade" ></td>              
+            </tr> 
+
+            <tr> 
+                <td></td>         
+                <td><button type="button" onclick="resultGrading()" class="submit-btn">Result</button></td>
+                <td ></td>
+            </tr>
+           
+            </table>
+            <div class="result-area"> 
+                <table id="total-marks">
+                <tr>
+                    <td><label for="exam_total" >Total Marks</label></td>       
+                    <td>:</td>
+                    <td> <div id="result" class="single-result"></div></td>
+                </tr> 
+                <tr>
+                    <td><label for="marks_grade">Average Marks</label></td>       
+                    <td>:</td>
+                    <td> <div id="average_marks" class="single-result"></div></td>
+                </tr> 
+                <tr>
+                    <td><label for="marks_grade">Grade</label></td>   
+                    <td>:</td>
+                    <td> <div id="marks_grade" class="single-result"></div><span id="goldenPlus" style="color:red" class="single-result"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="grade_point">Grade Point</label></td>   
+                    <td>:</td>
+                    <td> <div id="grade_point" class="single-result"></div></td>
+                </tr>
+                <tr>
+                    <td><label for="passed">Final Result</label></td>   
+                    <td>:</td>
+                    <td> <div id="passed" class="single-result"></div></td>
+                </tr>
+                
+            </table>
+        </div>  
+    </form>
+
+    <table>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+
+    <h2>Grading System</h2>
+    <p>Letter Grade System of Individual Subject</p>
+    
+    <table class="grading-table">
+        <tr>
+            <td>Clsss Interval</td>
+            <td>Letter Grade</td>
+            <td>Grade Point</td>
+        </tr> 
+        <tr>
+            <td>80-100</td>
+            <td>A+</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>70-79</td>
+            <td>A</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>60-69</td>
+            <td>A-</td>
+            <td>3.5</td>
+        </tr> 
+        <tr>
+            <td>50-59</td>
+            <td>B</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>40-49</td>
+            <td>C</td>
+            <td>2</td>
+        </tr> 
+        <tr>
+            <td>33-39</td>
+            <td>D</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0-32</td>
+            <td>F</td>
+            <td>0</td>
+        </tr>
+    </table>
+   
+</section>
+
+    <script>
+      
+        function subject1grading(){
+            let subject1Marks = parseInt(document.getElementById("subject1_marks").value);
+
+           if(subject1Marks>=80 && subject1Marks<=100){
+                document.getElementById("subject1_grade").value= "A+";
+            } else if(subject1Marks>=70 && subject1Marks<=79){
+                document.getElementById("subject1_grade").value= "A";
+            } else if(subject1Marks>=60 && subject1Marks<=69){
+                document.getElementById("subject1_grade").value= "A-";
+            } else if(subject1Marks>=50 && subject1Marks<=59){
+                document.getElementById("subject1_grade").value= "B";
+            } else if(subject1Marks>=40 && subject1Marks<=49){
+                document.getElementById("subject1_grade").value= "C";  
+            } else if(subject1Marks>=33 && subject1Marks<=39){
+                document.getElementById("subject1_grade").value= "D";                      
+            } else {
+                document.getElementById("subject1_grade").value= "F";
+            }
+
+        }  
+        function subject2grading(){
+            let subject2Marks = parseInt(document.getElementById("subject2_marks").value);
+
+            if(subject2Marks>=80 && subject2Marks<=100){
+                document.getElementById("subject2_grade").value= "A+";
+            } else if(subject2Marks>=70 && subject2Marks<=79){
+                document.getElementById("subject2_grade").value= "A";
+            } else if(subject2Marks>=60 && subject2Marks<=69){
+                document.getElementById("subject2_grade").value= "A-";
+            } else if(subject2Marks>=50 && subject2Marks<=59){
+                document.getElementById("subject2_grade").value= "B";
+            } else if(subject2Marks>=40 && subject2Marks<=49){
+                document.getElementById("subject2_grade").value= "C";  
+            } else if(subject2Marks>=33 && subject2Marks<=39){
+                document.getElementById("subject2_grade").value= "D";                      
+            } else {
+                document.getElementById("subject2_grade").value= "F";
+            }
+
+        }  
+        function subject3grading(){
+            let subject3Marks = parseInt(document.getElementById("subject3_marks").value);
+
+            if(subject3Marks>=80 && subject3Marks<=100){
+                document.getElementById("subject3_grade").value= "A+";
+            } else if(subject3Marks>=70 && subject3Marks<=79){
+                document.getElementById("subject3_grade").value= "A";
+            } else if(subject3Marks>=60 && subject3Marks<=69){
+                document.getElementById("subject3_grade").value= "A-";
+            } else if(subject3Marks>=50 && subject3Marks<=59){
+                document.getElementById("subject3_grade").value= "B";
+            } else if(subject3Marks>=40 && subject3Marks<=49){
+                document.getElementById("subject3_grade").value= "C";  
+            } else if(subject3Marks>=33 && subject3Marks<=39){
+                document.getElementById("subject3_grade").value= "D";                      
+            } else {
+                document.getElementById("subject3_grade").value= "F";
+            }
+        }  
+        function subject4grading(){
+            let subject4Marks = parseInt(document.getElementById("subject4_marks").value);
+
+            if(subject4Marks>=80 && subject4Marks<=100){
+                document.getElementById("subject4_grade").value= "A+";
+            } else if(subject4Marks>=70 && subject4Marks<=79){
+                document.getElementById("subject4_grade").value= "A";
+            } else if(subject4Marks>=60 && subject4Marks<=69){
+                document.getElementById("subject4_grade").value= "A-";
+            } else if(subject4Marks>=50 && subject4Marks<=59){
+                document.getElementById("subject4_grade").value= "B";
+            } else if(subject4Marks>=40 && subject4Marks<=49){
+                document.getElementById("subject4_grade").value= "C";  
+            } else if(subject4Marks>=33 && subject4Marks<=39){
+                document.getElementById("subject4_grade").value= "D";                      
+            } else {
+                document.getElementById("subject4_grade").value= "F";
+            }
+        }  
+        function subject5grading(){
+            let subject5Marks = parseInt(document.getElementById("subject5_marks").value);
+
+            if(subject5Marks>=80 && subject5Marks<=100){
+                document.getElementById("subject5_grade").value= "A+";
+            } else if(subject5Marks>=70 && subject5Marks<=79){
+                document.getElementById("subject5_grade").value= "A";
+            } else if(subject5Marks>=60 && subject5Marks<=69){
+                document.getElementById("subject5_grade").value= "A-";
+            } else if(subject5Marks>=50 && subject5Marks<=59){
+                document.getElementById("subject5_grade").value= "B";
+            } else if(subject5Marks>=40 && subject5Marks<=49){
+                document.getElementById("subject5_grade").value= "C";  
+            } else if(subject5Marks>=33 && subject5Marks<=39){
+                document.getElementById("subject5_grade").value= "D";                      
+            } else {
+                document.getElementById("subject5_grade").value= "F";
+            }
+
+        }  
+        function goldenPlus(){
+            let subject1Marks = parseInt(document.getElementById("subject1_marks").value);
+            let subject2Marks = parseInt(document.getElementById("subject2_marks").value);
+            let subject3Marks = parseInt(document.getElementById("subject3_marks").value);
+            let subject4Marks = parseInt(document.getElementById("subject4_marks").value);
+            let subject5Marks = parseInt(document.getElementById("subject5_marks").value);
+
+            if(subject1Marks>=90 && subject2Marks>=90 && subject3Marks>=90 && subject4Marks>=90 && subject5Marks>=90){
+                document.getElementById("goldenPlus").innerHTML= "Congratulations! you win the Golden +";
+
+            } else {
+                document.getElementById("goldenPlus").innerHTML= "";
+            }
+        }
+        function resultGrading(){
+            let examSubject1 =document.getElementById("exam_subject1").value;
+            let subject1Marks = parseInt(document.getElementById("subject1_marks").value);
+            let examSubject2 =document.getElementById("exam_subject2").value;
+            let subject2Marks = parseInt(document.getElementById("subject2_marks").value);
+            let subject3Marks = parseInt(document.getElementById("subject3_marks").value);
+            let subject4Marks = parseInt(document.getElementById("subject4_marks").value);
+            let subject5Marks = parseInt(document.getElementById("subject5_marks").value);
+
+            if(subject1Marks>100 || subject2Marks>100 || subject3Marks>100 || subject4Marks>100 || subject5Marks>100){
+                alert("Please enter the correct number");
+
+            } else {
+
+
+            let final =  subject1Marks+subject2Marks+subject3Marks+subject4Marks+subject5Marks;
+
+            let averageGrade = final/5;
+
+
+
+
+            document.getElementById("result").innerHTML= final;
+            document.getElementById("average_marks").innerHTML= averageGrade;
+
+           
+            if(averageGrade>=80 && averageGrade<=100){
+                document.getElementById("marks_grade").innerHTML= "A+";
+            } else if(averageGrade>=70 && averageGrade<=79){
+                document.getElementById("marks_grade").innerHTML= "A";
+            } else if(averageGrade>=60 && averageGrade<=69){
+                document.getElementById("marks_grade").innerHTML= "A-";
+            } else if(averageGrade>=50 && averageGrade<=59){
+                document.getElementById("marks_grade").innerHTML= "B";
+            } else if(averageGrade>=40 && averageGrade<=49){
+                document.getElementById("marks_grade").innerHTML= "C";  
+            } else if(averageGrade>=33 && averageGrade<=39){
+                document.getElementById("marks_grade").innerHTML= "D";                      
+            } else {
+                document.getElementById("marks_grade").innerHTML= "F";
+            }
+
+            if(subject1Marks>=33 && subject2Marks>=33 && subject3Marks>=33 && subject4Marks>=33 && subject5Marks>=33 ){
+                document.getElementById("passed").innerHTML= "Pass";
+
+            }  else {
+                document.getElementById("passed").innerHTML= "<span style='color:red'>Sorry you are unsuccess!</span>";
+            }
+
+            if(averageGrade>=80 && averageGrade<=100){
+                document.getElementById("grade_point").innerHTML= "5";
+            } else if(averageGrade>=70 && averageGrade<=79){
+                document.getElementById("grade_point").innerHTML= "4";
+            } else if(averageGrade>=60 && averageGrade<=69){
+                document.getElementById("grade_point").innerHTML= "3.5";
+            } else if(averageGrade>=50 && averageGrade<=59){
+                document.getElementById("grade_point").innerHTML= "3";
+            } else if(averageGrade>=40 && averageGrade<=49){
+                document.getElementById("grade_point").innerHTML= "2";  
+            } else if(averageGrade>=33 && averageGrade<=39){
+                document.getElementById("grade_point").innerHTML= "1";                      
+            } else {
+                document.getElementById("grade_point").innerHTML= "0";
+            }
+
+            if(subject1Marks>=90 && subject2Marks>=90 && subject3Marks>=90 && subject4Marks>=90 && subject5Marks>=90){
+                document.getElementById("goldenPlus").innerHTML= "Congratulations! you win the Golden +";
+
+            } else {
+                document.getElementById("goldenPlus").innerHTML= "";
+            }
+
+        }
+
+        } 
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section>
+        <h1>Student Information</h1>
+        <form action="">
+            <div class="form-1">
+                <div class="col-6">   
+                    <label for="first_name">First Name: </label>
+                    <input type="text" id="first_name" name="first_name">
+                </div>
+                <div class="col-6">   
+                    <label for="last_name">Last Name: </label>
+                    <input type="text" id="last_name" name="last_name" ><br><br>
+               </div>     
+               
+               <!--  <label for="full_name">Full Name:</label>
+                <input type="text" id="full_name" name="full_name" ><br>       -->     
+                <div class="col-6">                                
+                    <label for="application_number">Application Number:</label><br>
+                    <input type="text" id="application_number" name="application_number" placeholder="43232892005" ><br><br>   
+                </div>
+                <div class="col-6">   
+                    <label for="student_dob">Date of birth: </label><br>
+                    <input type="date" id="student_dob" name="student_dob"><br><br>
+                </div>
+                <div class="col-12">   
+                    <label for="s_gender" >Gender:</label>
+                    <label for="sgender_male">Male</label>
+                    <input type="radio" id="sgender_male" name="sgender_male" value="Male" style="width:20px">
+                    <label for="sgender_female">Female</label>
+                    <input type="radio" id="sgender_female" name="sgender_female" value="Female" style="width:20px"><br>
+                </div>
+                <div class="col-12">                                
+                    <label for="s_nid">National ID</label>
+                    <input type="text" name="s_nid" id="s_nid" ><br>   
+                </div>  
+                <div class="col-12">                                  
+                    <label for="p_address">Present Address:</label>
+                    <textarea name="p_address" id="p_address" cols="30" rows="5" placeholder="Write your address here..."></textarea><br>
+                 </div>
+                 <div class="col-12">                              
+                    <label for="per_address">Permanent Address:</label>
+                    <textarea name="per_address" id="per_address" cols="30" rows="5" placeholder="Permanent address here..."></textarea><br>
+                </div> 
+                <div class="col-6">                        
+                    <label for="contact_number">Contact Number:</label>
+                    <input type="text" id="contact_number" name="contact_number" placeholder="+880..." ><br>
+                 </div>  
+                 <div class="col-6"></div>                             
+                <label for="student_email">Email:</label>
+                <input type="email" id="student_email" name="student_email" placeholder="your@email" ><br>
+                </div>
+                <div class="col-12">                                  
+                    <label for="last_school">14. School last attended</label>
+                    <input type="text" name="last_school" id="last_school" ><br>
+                 </div>
+                 <div class="col-6">                              
+                    <label for="last_class">Class</label>
+                    <input type="text" name="last_class" id="last_class" ><br>
+                </div>
+                <div class="col-6">                               
+                    <label for="last_year">Year</label>
+                    <input type="date" name="last_year" id="last_year" ><br>
+                 </div>
+                 <div class="col-6">      
+                <button type="button" onclick="saveName()">Show me</button>
+                </div>
+            </div>    
+        </form>
+           
+        <div id="show" class="student-data"></div>
+
+     </section>
+
+    <script>
+        function saveName(){
+            var firstName = document.getElementById("first_name").value;
+            var lastName = document.getElementById("last_name").value;
+            //var fullName = firstName+lastName;
+            var applicationNumber = document.getElementById("application_number").value;
+            var studentDob = document.getElementById("student_dob").value;
+            var sgenderMale = document.getElementById("sgender_male").value;
+            var sgenderFemale = document.getElementById("sgender_female").value;
+            var studentNid = document.getElementById("s_nid").value;
+            var presentAddress = document.getElementById("p_address").value;
+            var permanentAddress = document.getElementById("per_address").value;
+            var contactNumber = document.getElementById("contact_number").value;
+            var studentEmail = document.getElementById("student_email").value;
+            var lastSchool = document.getElementById("last_school").value;
+            var lastClass = document.getElementById("last_class").value;
+            var lastYear = document.getElementById("last_year").value;
+
+
+            
+           
+
+            var saveAll = "<h1>Student Information: </h1>First Name: "+firstName+
+            "Last Name: "+lastName+ 
+            "<br> Application No. : "+applicationNumber+
+            "<br> Date of birth : "+studentDob+
+            "<br> Gender : "+
+            "Male : "+sgenderMale+
+            "<br>Female : "+sgenderFemale+
+            "<br> Student NID : "+studentNid+
+            "<br> Present address : "+presentAddress+
+            "<br> Permanent address : "+permanentAddress+
+            "<br> Contact number : "+contactNumber+
+            "<br> Email : "+studentEmail+
+            "<br> Last school attended : "+lastSchool+
+            "<br> Last classs : "+lastClass+
+            "<br> Last year : "+lastYear;
+
+            document.getElementById("show").innerHTML=saveAll;
+            
+            //alert(fullName);
+
+        }    
+    </script>    
+       
+</body>
+</html>
